@@ -66,7 +66,7 @@
   }
   .header-progress-bar {
     position: relative;
-    width: 28.43%;
+    width: 36.12%;
     height: 100%;
     background: linear-gradient(90deg, var(--teal2), #58D7C8);
     border-radius: inherit;
@@ -486,16 +486,16 @@
     <div>
       <div class="header-eyebrow">โรงพยาบาลมุกดาหาร · ปีงบประมาณ 2569</div>
       <div class="header-title">กำหนดการส่งมอบ<br><em>คอมพิวเตอร์ระบบเช่า</em><br>Paperless</div>
-      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 22 พฤษภาคม 2569</div>
+      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 23 พฤษภาคม 2569</div>
     </div>
     <div class="header-big">
-      <div class="num"><span class="done">85</span><span class="slash">/</span><span class="total">299</span></div>
+      <div class="num"><span class="done">108</span><span class="slash">/</span><span class="total">299</span></div>
       <div class="unit">เครื่อง</div>
       <div class="label">ส่งมอบแล้ว / รวมทั้งสิ้น</div>
     </div>
-    <div class="header-progress" aria-label="ส่งมอบแล้ว 28.43%">
+    <div class="header-progress" aria-label="ส่งมอบแล้ว 36.12%">
       <div class="header-progress-bar">
-        <span class="header-progress-label">28.43%</span>
+        <span class="header-progress-label">36.12%</span>
       </div>
       <div class="header-progress-flag" aria-hidden="true">🏁</div>
     </div>
@@ -508,7 +508,7 @@
         <div>
           <div class="sec-label">แท็บรายวัน</div>
           <div class="daily-title">รายงานการปฏิบัติงานส่งมอบเครื่องรายวัน</div>
-          <div class="daily-meta">อ้างอิงข้อมูลสะสมจาก ppl/22 05 69.html</div>
+          <div class="daily-meta">อ้างอิงข้อมูลสะสมจาก daily_computer_delivery_report_v3.html</div>
         </div>
         <div class="daily-badge">Daily Ops</div>
       </div>
@@ -520,13 +520,13 @@
     <div class="kpi-strip">
       <div class="kpi-card c-slate">
         <div class="kpi-icon">✅</div>
-        <div class="kpi-val">85</div>
-        <div class="kpi-label">ส่งมอบแล้ว<br>(18–22 พ.ค.)</div>
+        <div class="kpi-val">108</div>
+        <div class="kpi-label">ส่งมอบแล้ว<br>(18–23 พ.ค.)</div>
       </div>
       <div class="kpi-card c-teal">
         <div class="kpi-icon">🖥</div>
-        <div class="kpi-val">214</div>
-        <div class="kpi-label">คงเหลือตามแผน<br>(23 พ.ค.–3 มิ.ย.)</div>
+        <div class="kpi-val">191</div>
+        <div class="kpi-label">คงเหลือตามแผน<br>(24 พ.ค.–3 มิ.ย.)</div>
       </div>
       <div class="kpi-card c-coral">
         <div class="kpi-icon">🔝</div>
@@ -535,7 +535,7 @@
       </div>
       <div class="kpi-card c-amber">
         <div class="kpi-icon">📅</div>
-        <div class="kpi-val">~18</div>
+        <div class="kpi-val">~17</div>
         <div class="kpi-label">เฉลี่ย/วัน<br>(เครื่อง)</div>
       </div>
     </div>
@@ -601,8 +601,8 @@ const timelineData = [
   {
     date: '23 พ.ค. (เสาร์)',
     count: 23,
-    type: 'wknd',
-    status: 'ตามแผน',
+    type: 'done',
+    status: 'เสร็จเรียบร้อย',
     locs: 'จักษุ · หู คอ จมูก · โรคการทำงาน · กุมารเวชกรรม · สูติ-นรีเวชกรรม',
     details: [
       'จุดซักประวัติห้องตรวจ จักษุ จำนวน 4 เครื่อง · ห้องตรวจจักษุ จำนวน 2 เครื่อง',
@@ -821,11 +821,11 @@ tabEl.addEventListener('click', (event) => {
 
 window.addEventListener('hashchange', () => {
   const hashIndex = dayHashes.indexOf(location.hash.slice(1));
-  renderDay(hashIndex >= 0 ? hashIndex : 2, false);
+  renderDay(hashIndex >= 0 ? hashIndex : 3, false);
 });
 
 const initialIndex = dayHashes.indexOf(location.hash.slice(1));
-renderDay(initialIndex >= 0 ? initialIndex : 2);
+renderDay(initialIndex >= 0 ? initialIndex : 3);
 </script>
 </body>
 </html>
