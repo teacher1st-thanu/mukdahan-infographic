@@ -66,7 +66,7 @@
   }
   .header-progress-bar {
     position: relative;
-    width: 36.12%;
+    width: 41.47%;
     height: 100%;
     background: linear-gradient(90deg, var(--teal2), #58D7C8);
     border-radius: inherit;
@@ -486,16 +486,16 @@
     <div>
       <div class="header-eyebrow">โรงพยาบาลมุกดาหาร · ปีงบประมาณ 2569</div>
       <div class="header-title">กำหนดการส่งมอบ<br><em>คอมพิวเตอร์ระบบเช่า</em><br>Paperless</div>
-      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 23 พฤษภาคม 2569</div>
+      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 24 พฤษภาคม 2569</div>
     </div>
     <div class="header-big">
-      <div class="num"><span class="done">108</span><span class="slash">/</span><span class="total">299</span></div>
+      <div class="num"><span class="done">124</span><span class="slash">/</span><span class="total">299</span></div>
       <div class="unit">เครื่อง</div>
       <div class="label">ส่งมอบแล้ว / รวมทั้งสิ้น</div>
     </div>
-    <div class="header-progress" aria-label="ส่งมอบแล้ว 36.12%">
+    <div class="header-progress" aria-label="ส่งมอบแล้ว 41.47%">
       <div class="header-progress-bar">
-        <span class="header-progress-label">36.12%</span>
+        <span class="header-progress-label">41.47%</span>
       </div>
       <div class="header-progress-flag" aria-hidden="true">🏁</div>
     </div>
@@ -508,7 +508,7 @@
         <div>
           <div class="sec-label">แท็บรายวัน</div>
           <div class="daily-title">รายงานการปฏิบัติงานส่งมอบเครื่องรายวัน</div>
-          <div class="daily-meta">อ้างอิงข้อมูลสะสมจาก daily_computer_delivery_report_v3.html</div>
+          <div class="daily-meta">อ้างอิงข้อมูลสะสมจาก daily_computer_delivery_report_24may.html</div>
         </div>
         <div class="daily-badge">Daily Ops</div>
       </div>
@@ -520,13 +520,13 @@
     <div class="kpi-strip">
       <div class="kpi-card c-slate">
         <div class="kpi-icon">✅</div>
-        <div class="kpi-val">108</div>
-        <div class="kpi-label">ส่งมอบแล้ว<br>(18–23 พ.ค.)</div>
+        <div class="kpi-val">124</div>
+        <div class="kpi-label">ส่งมอบแล้ว<br>(18–24 พ.ค.)</div>
       </div>
       <div class="kpi-card c-teal">
         <div class="kpi-icon">🖥</div>
-        <div class="kpi-val">191</div>
-        <div class="kpi-label">คงเหลือตามแผน<br>(24 พ.ค.–3 มิ.ย.)</div>
+        <div class="kpi-val">175</div>
+        <div class="kpi-label">คงเหลือตามแผน<br>(25 พ.ค.–3 มิ.ย.)</div>
       </div>
       <div class="kpi-card c-coral">
         <div class="kpi-icon">🔝</div>
@@ -535,7 +535,7 @@
       </div>
       <div class="kpi-card c-amber">
         <div class="kpi-icon">📅</div>
-        <div class="kpi-val">~17</div>
+        <div class="kpi-val">~18</div>
         <div class="kpi-label">เฉลี่ย/วัน<br>(เครื่อง)</div>
       </div>
     </div>
@@ -614,13 +614,17 @@ const timelineData = [
   {
     date: '24 พ.ค. (อาทิตย์)',
     count: 16,
-    type: 'wknd',
-    status: 'ตามแผน',
-    locs: 'ฝากครรภ์ · จ่ายยา ชั้น 2',
+    type: 'done',
+    status: 'เสร็จเรียบร้อย',
+    locs: 'ฝากครรภ์ · การเงิน ชั้น 2 · จ่ายยา ชั้น 2',
     details: [
       'จุดซักประวัติ ฝากครรภ์ จำนวน 3 เครื่อง',
       'ห้องตรวจ ฝากครรภ์ จำนวน 1 เครื่อง',
-      'ห้องจ่ายยาผู้ป่วย ชั้น 2 จำนวน 12 เครื่อง'
+      'ห้องการเงิน ชั้น 2 จำนวน 2 เครื่อง',
+      'ห้องจ่ายยาผู้ป่วย ชั้น 2 จำนวน 10 เครื่อง',
+      'ปัญหาที่พบ: ห้องจ่ายยายังใช้งานอยู่ ต้องทยอยติดตั้งทีละเครื่อง',
+      'ปัญหาที่พบ: เครื่องพิมพ์ 1 เครื่องแชร์หลายเครื่อง ทำให้ใช้เวลาติดตั้งเพิ่มขึ้น',
+      'ปัญหาที่พบ: รื้อเก็บอุปกรณ์คอมเดิมและเคลียร์สายไฟเดิมใช้เวลาเพิ่ม'
     ]
   },
   {
@@ -821,11 +825,11 @@ tabEl.addEventListener('click', (event) => {
 
 window.addEventListener('hashchange', () => {
   const hashIndex = dayHashes.indexOf(location.hash.slice(1));
-  renderDay(hashIndex >= 0 ? hashIndex : 3, false);
+  renderDay(hashIndex >= 0 ? hashIndex : 4, false);
 });
 
 const initialIndex = dayHashes.indexOf(location.hash.slice(1));
-renderDay(initialIndex >= 0 ? initialIndex : 3);
+renderDay(initialIndex >= 0 ? initialIndex : 4);
 </script>
 </body>
 </html>
