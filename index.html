@@ -9,17 +9,17 @@
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
   :root {
-    --teal:   #0D7A6B;
-    --teal2:  #1AAF98;
-    --teal3:  #C6F0EB;
-    --navy:   #0B2545;
-    --navy2:  #163566;
-    --amber:  #F5A623;
-    --coral:  #E05A3A;
-    --slate:  #5A6A7A;
-    --light:  #F0F6F8;
-    --white:  #FFFFFF;
-    --ink:    #0B1F2E;
+    --teal:   #6F8F5D;
+    --teal2:  #A3B86C;
+    --teal3:  #D8C99B;
+    --navy:   #1F241F;
+    --navy2:  #2C2A23;
+    --amber:  #D6A23F;
+    --coral:  #C7653D;
+    --slate:  #8B8171;
+    --light:  #F2EAD8;
+    --white:  #F7F0E2;
+    --ink:    #171A15;
   }
 
   body {
@@ -44,6 +44,174 @@
     align-items: stretch;
     margin-bottom: 30px;
   }
+  .command-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(320px, 0.9fr);
+    gap: 18px;
+    align-items: stretch;
+    margin-bottom: 28px;
+  }
+  .impact-panel,
+  .pattern-panel {
+    background: linear-gradient(135deg, rgba(56,49,38,0.96), rgba(31,36,31,0.9));
+    border: 1px solid rgba(163,184,108,0.2);
+    border-radius: 14px;
+    padding: 22px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+  }
+  .impact-panel::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    bottom: 20px;
+    left: 0;
+    width: 4px;
+    border-radius: 0 99px 99px 0;
+    background: linear-gradient(180deg, var(--coral), var(--amber));
+  }
+  .impact-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 20px;
+  }
+  .impact-title {
+    font-size: 25px;
+    font-weight: 700;
+    line-height: 1.22;
+    color: var(--white);
+  }
+  .impact-title em {
+    font-style: normal;
+    color: var(--coral);
+  }
+  .impact-note {
+    font-size: 12px;
+    color: rgba(255,255,255,0.55);
+    margin-top: 7px;
+    line-height: 1.55;
+  }
+  .gap-meter {
+    flex: 0 0 122px;
+    border: 1px solid rgba(199,101,61,0.34);
+    background: rgba(199,101,61,0.1);
+    border-radius: 12px;
+    padding: 13px 14px 12px;
+    text-align: right;
+  }
+  .gap-meter .label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.54);
+  }
+  .gap-meter .num {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 38px;
+    font-weight: 600;
+    color: var(--coral);
+    line-height: 1;
+    margin-top: 6px;
+  }
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 10px;
+    margin-bottom: 18px;
+  }
+  .score-card {
+    background: rgba(31,36,31,0.5);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 10px;
+    padding: 12px;
+  }
+  .score-label {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.42);
+    margin-bottom: 8px;
+  }
+  .score-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 26px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--white);
+  }
+  .score-val.good { color: var(--teal2); }
+  .score-val.warn { color: var(--amber); }
+  .score-val.bad { color: var(--coral); }
+  .cause-chain {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .cause-card {
+    background: rgba(31,36,31,0.42);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 10px;
+    padding: 12px;
+    min-height: 112px;
+  }
+  .cause-step {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--amber);
+    margin-bottom: 7px;
+  }
+  .cause-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 5px;
+  }
+  .cause-detail {
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.56);
+  }
+  .snapshot-stack {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    height: 100%;
+  }
+  .snapshot-card {
+    background: var(--navy2);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 18px;
+    position: relative;
+    overflow: hidden;
+  }
+  .snapshot-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .snapshot-card.c-teal::before { background: var(--teal2); }
+  .snapshot-card.c-amber::before { background: var(--amber); }
+  .snapshot-card.c-coral::before { background: var(--coral); }
+  .snapshot-card.c-slate::before { background: var(--slate); }
+  .snapshot-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 32px;
+    font-weight: 600;
+    color: var(--white);
+    line-height: 1;
+  }
+  .snapshot-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.56);
+    margin-top: 8px;
+    line-height: 1.45;
+  }
 
   /* ============ HEADER ============ */
   .header {
@@ -66,12 +234,12 @@
   }
   .header-progress-bar {
     position: relative;
-    width: 41.47%;
+    width: 46.49%;
     height: 100%;
-    background: linear-gradient(90deg, var(--teal2), #58D7C8);
+    background: linear-gradient(90deg, var(--teal2), #C8B56B);
     border-radius: inherit;
     min-width: 68px;
-    box-shadow: 0 0 18px rgba(26,175,152,0.28);
+    box-shadow: 0 0 18px rgba(163,184,108,0.24);
   }
   .header-progress-label {
     position: absolute;
@@ -172,7 +340,7 @@
   .kpi-card.c-teal::before { background: var(--teal2); }
   .kpi-card.c-amber::before { background: var(--amber); }
   .kpi-card.c-coral::before { background: var(--coral); }
-  .kpi-card.c-slate::before { background: #8899AA; }
+  .kpi-card.c-slate::before { background: var(--slate); }
   .kpi-icon {
     font-size: 22px;
     margin-bottom: 10px;
@@ -216,7 +384,7 @@
     position: relative;
     overflow: hidden;
   }
-  .dg-card.wknd { border-color: rgba(42,94,196,0.4); }
+  .dg-card.wknd { border-color: rgba(111,143,93,0.42); }
   .dg-card.peak { border-color: rgba(240,122,80,0.5); }
   .dg-date {
     font-size: 10px;
@@ -232,21 +400,21 @@
     line-height: 1;
     margin-bottom: 4px;
   }
-  .dg-card.wknd .dg-count { color: #7EAAFF; }
-  .dg-card.peak .dg-count { color: #F07A50; }
+  .dg-card.wknd .dg-count { color: #B5C978; }
+  .dg-card.peak .dg-count { color: var(--coral); }
   .dg-locs {
     font-size: 9.5px;
     color: rgba(255,255,255,0.42);
     line-height: 1.45;
   }
   .dg-card.done { border-color: rgba(136,153,170,0.45); }
-  .dg-card.done .dg-count { color: #AAB6C2; }
+  .dg-card.done .dg-count { color: #B8AA91; }
   .done-tag {
     position: absolute;
     top: 6px; right: 6px;
     font-size: 8px;
     background: rgba(136,153,170,0.22);
-    color: #C8D2DC;
+    color: #D5C8B2;
     padding: 1px 5px;
     border-radius: 4px;
     font-weight: 600;
@@ -255,8 +423,8 @@
     position: absolute;
     top: 6px; right: 6px;
     font-size: 8px;
-    background: rgba(42,94,196,0.3);
-    color: #A8C4F8;
+    background: rgba(111,143,93,0.22);
+    color: #C5D48F;
     padding: 1px 5px;
     border-radius: 4px;
     font-weight: 600;
@@ -267,7 +435,7 @@
     top: 6px; right: 6px;
     font-size: 8px;
     background: rgba(240,122,80,0.25);
-    color: #F07A50;
+    color: var(--coral);
     padding: 1px 5px;
     border-radius: 4px;
     font-weight: 600;
@@ -276,8 +444,8 @@
   /* ============ DAILY TABS ============ */
   .daily-section {
     margin-bottom: 0;
-    background: linear-gradient(135deg, rgba(22,53,102,0.92), rgba(11,37,69,0.86));
-    border: 1px solid rgba(26,175,152,0.22);
+    background: linear-gradient(135deg, rgba(56,49,38,0.94), rgba(31,36,31,0.9));
+    border: 1px solid rgba(163,184,108,0.2);
     border-radius: 14px;
     padding: 20px 20px 20px 24px;
     box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
@@ -315,16 +483,187 @@
   .daily-badge {
     flex: 0 0 auto;
     align-self: flex-start;
-    border: 1px solid rgba(245,166,35,0.32);
+    border: 1px solid rgba(214,162,63,0.34);
     border-radius: 8px;
     padding: 7px 10px;
-    color: #FFD58A;
-    background: rgba(245,166,35,0.08);
+    color: #E8C46D;
+    background: rgba(214,162,63,0.09);
     font-family: 'IBM Plex Mono', monospace;
     font-size: 10px;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
+  }
+  .ops-section {
+    margin-bottom: 28px;
+  }
+  .pattern-panel {
+    margin-bottom: 28px;
+  }
+  .pattern-panel::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 22px; right: 22px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--amber), var(--coral));
+    border-radius: 0 0 99px 99px;
+  }
+  .pattern-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 18px;
+    margin-bottom: 16px;
+  }
+  .pattern-title {
+    font-size: 21px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.28;
+  }
+  .pattern-meta {
+    font-size: 11px;
+    color: rgba(255,255,255,0.46);
+    line-height: 1.5;
+    text-align: right;
+  }
+  .problem-grid {
+    display: grid;
+    grid-template-columns: 1.08fr 0.92fr;
+    gap: 14px;
+  }
+  .problem-column {
+    background: rgba(31,36,31,0.42);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 12px;
+    padding: 14px;
+  }
+  .problem-column.is-new {
+    border-color: rgba(199,101,61,0.3);
+    background: rgba(199,101,61,0.08);
+  }
+  .column-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding-bottom: 10px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+  }
+  .column-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--white);
+  }
+  .column-count {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    color: var(--amber);
+  }
+  .problem-item {
+    display: grid;
+    grid-template-columns: 72px 1fr;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+  }
+  .problem-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 2px;
+  }
+  .problem-days {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--teal2);
+  }
+  .problem-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 4px;
+  }
+  .problem-desc {
+    font-size: 11px;
+    line-height: 1.5;
+    color: rgba(255,255,255,0.55);
+  }
+  .ops-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+  }
+  .ops-card {
+    background: var(--navy2);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 12px;
+    padding: 16px;
+    min-height: 154px;
+    position: relative;
+    overflow: hidden;
+  }
+  .ops-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+  }
+  .ops-card.c-coral::before { background: var(--coral); }
+  .ops-card.c-amber::before { background: var(--amber); }
+  .ops-card.c-teal::before { background: var(--teal2); }
+  .ops-card.c-slate::before { background: var(--slate); }
+  .ops-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-start;
+    margin-bottom: 14px;
+  }
+  .ops-label {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.45);
+    font-weight: 600;
+  }
+  .ops-icon {
+    font-size: 19px;
+    line-height: 1;
+  }
+  .ops-val {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 34px;
+    font-weight: 600;
+    line-height: 1;
+    color: var(--white);
+    margin-bottom: 8px;
+  }
+  .ops-val.warn { color: #E8C46D; }
+  .ops-val.bad { color: var(--coral); }
+  .ops-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--white);
+    line-height: 1.35;
+    margin-bottom: 6px;
+  }
+  .ops-detail {
+    font-size: 11px;
+    line-height: 1.55;
+    color: rgba(255,255,255,0.58);
+  }
+  .ops-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 3px 7px;
+    margin-top: 10px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.66);
+    font-size: 10px;
+    font-weight: 600;
   }
   .tab-list {
     display: grid;
@@ -335,7 +674,7 @@
   .tab-btn {
     appearance: none;
     border: 1px solid rgba(255,255,255,0.08);
-    background: rgba(11,37,69,0.72);
+    background: rgba(31,36,31,0.72);
     color: rgba(255,255,255,0.7);
     border-radius: 8px;
     min-width: 0;
@@ -347,7 +686,7 @@
   }
   .tab-btn:hover,
   .tab-btn:focus-visible {
-    border-color: rgba(26,175,152,0.55);
+    border-color: rgba(163,184,108,0.55);
     outline: none;
   }
   .tab-btn.active {
@@ -356,8 +695,9 @@
     border-color: var(--teal2);
   }
   .tab-btn.done { border-color: rgba(136,153,170,0.36); }
-  .tab-btn.wknd { border-color: rgba(42,94,196,0.45); }
+  .tab-btn.wknd { border-color: rgba(111,143,93,0.45); }
   .tab-btn.peak { border-color: rgba(240,122,80,0.55); }
+  .tab-btn.issue { border-color: rgba(199,101,61,0.62); }
   .tab-date {
     display: block;
     font-family: 'IBM Plex Mono', monospace;
@@ -379,7 +719,7 @@
     padding-top: 16px;
   }
   .day-stat {
-    background: rgba(11,37,69,0.76);
+    background: rgba(31,36,31,0.74);
     border-radius: 12px;
     padding: 16px;
     min-height: 140px;
@@ -412,7 +752,7 @@
     gap: 10px;
   }
   .day-item {
-    background: rgba(11,37,69,0.46);
+    background: rgba(31,36,31,0.46);
     border: 1px solid rgba(255,255,255,0.07);
     border-radius: 10px;
     padding: 11px 12px;
@@ -442,7 +782,13 @@
     .overview-grid {
       grid-template-columns: 1fr;
     }
+    .command-grid {
+      grid-template-columns: 1fr;
+    }
     .kpi-strip {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+    .snapshot-stack {
       grid-template-columns: repeat(4, minmax(0, 1fr));
     }
   }
@@ -463,7 +809,12 @@
       max-width: none;
     }
     .kpi-strip,
+    .snapshot-stack,
+    .score-grid,
+    .cause-chain,
+    .problem-grid,
     .detail-grid,
+    .ops-grid,
     .tab-list,
     .daily-panel,
     .day-detail {
@@ -471,6 +822,20 @@
     }
     .footer {
       align-items: flex-start;
+    }
+    .impact-head,
+    .pattern-head {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    .gap-meter,
+    .pattern-meta {
+      width: 100%;
+      text-align: left;
+    }
+    .problem-item {
+      grid-template-columns: 1fr;
+      gap: 4px;
     }
     .legend-row {
       flex-wrap: wrap;
@@ -485,67 +850,197 @@
   <div class="header">
     <div>
       <div class="header-eyebrow">โรงพยาบาลมุกดาหาร · ปีงบประมาณ 2569</div>
-      <div class="header-title">กำหนดการส่งมอบ<br><em>คอมพิวเตอร์ระบบเช่า</em><br>Paperless</div>
-      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 24 พฤษภาคม 2569</div>
+      <div class="header-title">Dashboard ส่งมอบ<br><em>คอมพิวเตอร์ระบบเช่า</em><br>Paperless</div>
+      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 25 พฤษภาคม 2569</div>
     </div>
     <div class="header-big">
-      <div class="num"><span class="done">124</span><span class="slash">/</span><span class="total">299</span></div>
+      <div class="num"><span class="done">139</span><span class="slash">/</span><span class="total">299</span></div>
       <div class="unit">เครื่อง</div>
       <div class="label">ส่งมอบแล้ว / รวมทั้งสิ้น</div>
     </div>
-    <div class="header-progress" aria-label="ส่งมอบแล้ว 41.47%">
+    <div class="header-progress" aria-label="ส่งมอบแล้ว 46.49%">
       <div class="header-progress-bar">
-        <span class="header-progress-label">41.47%</span>
+        <span class="header-progress-label">46.49%</span>
       </div>
       <div class="header-progress-flag" aria-hidden="true">🏁</div>
     </div>
   </div>
 
-  <div class="overview-grid">
-    <!-- ===== DAILY TABS ===== -->
-    <div class="daily-section">
-      <div class="daily-head">
+  <div class="command-grid">
+    <!-- ===== TODAY IMPACT ===== -->
+    <section class="impact-panel" aria-labelledby="todayImpactTitle">
+      <div class="impact-head">
         <div>
-          <div class="sec-label">แท็บรายวัน</div>
-          <div class="daily-title">รายงานการปฏิบัติงานส่งมอบเครื่องรายวัน</div>
-          <div class="daily-meta">อ้างอิงข้อมูลสะสมจาก daily_computer_delivery_report_24may.html</div>
+          <div class="sec-label">Daily performance · 25 พ.ค.</div>
+          <div class="impact-title" id="todayImpactTitle">วันนี้ส่งมอบ <em>ต่ำกว่าแผน</em></div>
+          <div class="impact-note">ปัญหาหลักไม่ใช่จำนวนเครื่องอย่างเดียว แต่เป็นเวลางานติดตั้งที่ถูกดึงออกไปทั้งช่วงเช้าและช่วงบ่าย</div>
         </div>
-        <div class="daily-badge">Daily Ops</div>
+        <div class="gap-meter" aria-label="ต่ำกว่าแผน 8 เครื่อง">
+          <div class="label">Gap</div>
+          <div class="num">-8</div>
+        </div>
       </div>
-      <div class="tab-list" id="dayTabs" role="tablist" aria-label="ข้อมูลรายวัน"></div>
-      <div class="daily-panel" id="dayPanel"></div>
-    </div>
 
-    <!-- ===== KPI STRIP ===== -->
-    <div class="kpi-strip">
-      <div class="kpi-card c-slate">
-        <div class="kpi-icon">✅</div>
-        <div class="kpi-val">124</div>
-        <div class="kpi-label">ส่งมอบแล้ว<br>(18–24 พ.ค.)</div>
+      <div class="score-grid" aria-label="สรุปตัวเลขประจำวันที่ 25 พฤษภาคม 2569">
+        <div class="score-card">
+          <div class="score-label">Plan</div>
+          <div class="score-val">23</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">Actual</div>
+          <div class="score-val good">15</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">Finish</div>
+          <div class="score-val warn">19:20</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">Delayed</div>
+          <div class="score-val bad">6</div>
+        </div>
       </div>
-      <div class="kpi-card c-teal">
-        <div class="kpi-icon">🖥</div>
-        <div class="kpi-val">175</div>
-        <div class="kpi-label">คงเหลือตามแผน<br>(25 พ.ค.–3 มิ.ย.)</div>
+
+      <div class="cause-chain" aria-label="สาเหตุหลักที่ทำให้ส่งมอบต่ำกว่าแผน">
+        <div class="cause-card">
+          <div class="cause-step">01 · Morning</div>
+          <div class="cause-title">ทีมถูกดึงไป IT Support</div>
+          <div class="cause-detail">OPD, จักษุ, ENT, ห้องยา และบัตรทอง ทำให้ช่วงเช้าไม่มีการส่งมอบ</div>
+        </div>
+        <div class="cause-card">
+          <div class="cause-step">02 · Afternoon</div>
+          <div class="cause-title">มีงานขอ Backup Data</div>
+          <div class="cause-detail">OPD และ LAB ขอสำรองข้อมูล ส่งผลให้การเคลื่อนย้ายและติดตั้งล่าช้า</div>
+        </div>
+        <div class="cause-card">
+          <div class="cause-step">03 · Impact</div>
+          <div class="cause-title">ศัลยกรรมหญิงเลื่อน</div>
+          <div class="cause-detail">เลื่อน 6 เครื่อง และกุมารเวชกรรม +PPL ส่งมอบได้ 7 จาก 9 เครื่อง</div>
+        </div>
       </div>
-      <div class="kpi-card c-coral">
-        <div class="kpi-icon">🔝</div>
-        <div class="kpi-val">24</div>
-        <div class="kpi-label">สูงสุด/วัน<br>(30 พ.ค.)</div>
+    </section>
+
+    <!-- ===== PROJECT SNAPSHOT ===== -->
+    <aside class="snapshot-stack" aria-label="ภาพรวมโครงการ">
+      <div class="snapshot-card c-slate">
+        <div class="snapshot-val">139 / 299</div>
+        <div class="snapshot-label">ส่งมอบแล้วสะสมถึง 25 พ.ค.</div>
       </div>
-      <div class="kpi-card c-amber">
-        <div class="kpi-icon">📅</div>
-        <div class="kpi-val">~18</div>
-        <div class="kpi-label">เฉลี่ย/วัน<br>(เครื่อง)</div>
+      <div class="snapshot-card c-teal">
+        <div class="snapshot-val">46.49%</div>
+        <div class="snapshot-label">ความคืบหน้าโครงการ</div>
       </div>
-    </div>
+      <div class="snapshot-card c-amber">
+        <div class="snapshot-val">160</div>
+        <div class="snapshot-label">คงเหลือรอจัดส่ง 26 พ.ค.–3 มิ.ย.</div>
+      </div>
+      <div class="snapshot-card c-coral">
+        <div class="snapshot-val">-1</div>
+        <div class="snapshot-label">กำลังคนลดลงตั้งแต่ 23 พ.ค.</div>
+      </div>
+    </aside>
   </div>
 
-  <!-- ===== DETAIL CARDS ===== -->
-  <div class="detail-section">
-    <div class="sec-label">กำหนดการ (21 พ.ค. – 3 มิ.ย.)</div>
-    <div class="detail-grid" id="cards"></div>
-  </div>
+  <!-- ===== PROBLEM PATTERN ===== -->
+  <section class="pattern-panel" aria-labelledby="problemPatternTitle">
+    <div class="pattern-head">
+      <div>
+        <div class="sec-label">Problem pattern · 18–25 พ.ค.</div>
+        <div class="pattern-title" id="problemPatternTitle">แยกปัญหาซ้ำออกจากปัญหาที่เพิ่งกระทบหนักวันนี้</div>
+      </div>
+      <div class="pattern-meta">อ้างอิง rep.md, 210569.jpg, 220569.jpg และรายงาน 25 พ.ค.</div>
+    </div>
+    <div class="problem-grid">
+      <div class="problem-column">
+        <div class="column-head">
+          <div class="column-title">ปัญหาซ้ำที่กินเวลาติดตั้ง</div>
+          <div class="column-count">5 รายการ</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">5 วัน</div>
+          <div>
+            <div class="problem-name">เครื่องพิมพ์แชร์หลายเครื่อง</div>
+            <div class="problem-desc">พบซ้ำวันที่ 18, 20, 23, 24, 25 พ.ค. ทำให้ตั้งค่าและทดสอบต่อเครื่องนานขึ้น</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">5 วัน</div>
+          <div>
+            <div class="problem-name">รื้อเก็บอุปกรณ์เดิมและเคลียร์สาย</div>
+            <div class="problem-desc">พบซ้ำวันที่ 18, 20, 23, 24, 25 พ.ค. เป็นงานแฝงก่อนเริ่มติดตั้งเครื่องใหม่</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">3 วัน</div>
+          <div>
+            <div class="problem-name">พื้นที่บริการยังใช้งานอยู่</div>
+            <div class="problem-desc">20, 24, 25 พ.ค. ต้องรอเจ้าหน้าที่หรือทยอยเปลี่ยนทีละเครื่อง</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">2 วัน</div>
+          <div>
+            <div class="problem-name">ข้อมูลผู้ใช้ / Backup Data</div>
+            <div class="problem-desc">18 และ 25 พ.ค. มีคำขอข้อมูลจากเครื่องเดิมหรือสำรองข้อมูลก่อนเคลื่อนย้าย</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">2 วัน</div>
+          <div>
+            <div class="problem-name">LAN / Network readiness</div>
+            <div class="problem-desc">22 พ.ค. Network ช้า และ 23 พ.ค. สาย LAN สั้น ต้องแก้เฉพาะหน้า</div>
+          </div>
+        </div>
+      </div>
+      <div class="problem-column is-new">
+        <div class="column-head">
+          <div class="column-title">ใหม่/กระทบหนักใน 25 พ.ค.</div>
+          <div class="column-count">4 ประเด็น</div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">ใหม่</div>
+          <div>
+            <div class="problem-name">ช่วงเช้าไม่มีการส่งมอบ</div>
+            <div class="problem-desc">ทีมถูกดึงไปแก้ปัญหา IT Support หลายจุด ทำให้เสียเวลาติดตั้งหลักครึ่งวัน</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">ใหม่</div>
+          <div>
+            <div class="problem-name">งาน Backup OPD/LAB ช่วงบ่าย</div>
+            <div class="problem-desc">เพิ่มขั้นตอนก่อนเคลื่อนย้าย ทำให้วันทำงานยืดถึง 19:20 น.</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">ต่อเนื่อง</div>
+          <div>
+            <div class="problem-name">กำลังคนลดลง 1 คน</div>
+            <div class="problem-desc">เริ่มตั้งแต่ 23 พ.ค. และเห็นผลชัดเมื่อเจองานสนับสนุนหน้างานในวันที่ 25 พ.ค.</div>
+          </div>
+        </div>
+        <div class="problem-item">
+          <div class="problem-days">ผลกระทบ</div>
+          <div>
+            <div class="problem-name">ศัลยกรรมหญิง 6 เครื่องเลื่อน</div>
+            <div class="problem-desc">เกิดช่องว่างจากแผน 8 เครื่อง และเหลือกุมารเวชกรรม +PPL อีก 2 เครื่อง</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== DAILY TABS ===== -->
+  <section class="daily-section">
+    <div class="daily-head">
+      <div>
+        <div class="sec-label">Daily detail</div>
+        <div class="daily-title">รายละเอียดการปฏิบัติงานรายวัน</div>
+        <div class="daily-meta">เปิดไว้เป็นข้อมูลประกอบ หลังสรุปประเด็นผู้บริหารด้านบน</div>
+      </div>
+      <div class="daily-badge">18–25 May</div>
+    </div>
+    <div class="tab-list" id="dayTabs" role="tablist" aria-label="ข้อมูลรายวัน"></div>
+    <div class="daily-panel" id="dayPanel"></div>
+  </section>
 
   <!-- ===== FOOTER ===== -->
   <div class="footer">
@@ -554,10 +1049,9 @@
       * +PPL = ติดตั้งพร้อมกับเครื่องสำรอง
     </div>
     <div class="legend-row">
-      <div class="leg"><div class="leg-dot" style="background:#1AAF98"></div>วันธรรมดา</div>
-      <div class="leg"><div class="leg-dot" style="background:#2A5EC4"></div>เสาร์-อาทิตย์</div>
-      <div class="leg"><div class="leg-dot" style="background:#F07A50"></div>วันยอดสูงสุด</div>
-      <div class="leg"><div class="leg-dot" style="background:#5A6A7A"></div>ส่งมอบแล้ว</div>
+      <div class="leg"><div class="leg-dot" style="background:#C7653D"></div>ต่ำกว่าแผน</div>
+      <div class="leg"><div class="leg-dot" style="background:#D6A23F"></div>ปรับหน้างาน</div>
+      <div class="leg"><div class="leg-dot" style="background:#8B8171"></div>ปัญหาซ้ำ</div>
     </div>
   </div>
 </div>
@@ -629,15 +1123,16 @@ const timelineData = [
   },
   {
     date: '25 พ.ค.',
-    count: 23,
-    type: 'normal',
-    status: 'ตามแผน',
-    locs: 'ศัลยกรรมหญิง · ICU กุมารฯ · ICU อายุรกรรม · กุมารเวชกรรม',
+    count: 15,
+    type: 'issue',
+    status: 'ต่ำกว่าแผน',
+    locs: 'ICU กุมารฯ · ICU อายุรกรรม · กุมารเวชกรรม · ศัลยกรรมหญิงเลื่อน',
     details: [
-      'Standby รับงาน',
-      'หอผู้ป่วยศัลยกรรมหญิง จำนวน 6 เครื่อง',
-      'หอผู้ป่วยหนักกุมารเวชกรรม +PPL จำนวน 3 เครื่อง',
-      'หอผู้ป่วยหนักอายุรกรรม1 +PPL จำนวน 5 เครื่อง · หอผู้ป่วยกุมารเวชกรรม +PPL จำนวน 9 เครื่อง'
+      'ส่งมอบจริง 15 เครื่อง จากแผนเดิม 23 เครื่อง เสร็จเวลา 19:20 น.',
+      'หอผู้ป่วยหนักกุมารเวชกรรม +PPL จำนวน 3 เครื่อง · หอผู้ป่วยหนักอายุรกรรม1 +PPL จำนวน 5 เครื่อง',
+      'หอผู้ป่วยกุมารเวชกรรม +PPL ปรับหน้างาน ส่งมอบ 7 จาก 9 เครื่อง',
+      'หอผู้ป่วยศัลยกรรมหญิง 6 เครื่องเลื่อนออกไป เนื่องจากช่วงเช้าทีมรับงาน IT Support',
+      'ปัญหาซ้ำ: กำลังคนลดลง 1 คน, เครื่องพิมพ์แชร์หลายเครื่อง, รื้อเก็บสายไฟและอุปกรณ์เดิม'
     ]
   },
   {
@@ -759,25 +1254,6 @@ const timelineData = [
   },
 ];
 
-// Detail cards
-const cards = timelineData;
-const cEl = document.getElementById('cards');
-cards.forEach(d => {
-  const cls = d.type === 'done' ? 'dg-card done' : d.type === 'wknd' ? 'dg-card wknd' : d.type === 'peak' ? 'dg-card peak' : 'dg-card';
-  const tag = d.type === 'wknd' ? '<div class="wknd-tag">หยุด</div>' :
-              d.type === 'peak' ? '<div class="peak-tag">สูงสุด</div>' :
-              d.type === 'done' ? '<div class="done-tag">เสร็จ</div>' : '';
-  const shortDate = d.date.replace(' (เสาร์)','').replace(' (อาทิตย์)','');
-  const locs = d.locs.split(' · ').join('<br>');
-  cEl.innerHTML += `
-    <div class="${cls}">
-      ${tag}
-      <div class="dg-date">${shortDate}</div>
-      <div class="dg-count">${d.count}</div>
-      <div class="dg-locs">${locs}</div>
-    </div>`;
-});
-
 const tabEl = document.getElementById('dayTabs');
 const panelEl = document.getElementById('dayPanel');
 const dayHashes = [
@@ -825,11 +1301,11 @@ tabEl.addEventListener('click', (event) => {
 
 window.addEventListener('hashchange', () => {
   const hashIndex = dayHashes.indexOf(location.hash.slice(1));
-  renderDay(hashIndex >= 0 ? hashIndex : 4, false);
+  renderDay(hashIndex >= 0 ? hashIndex : 5, false);
 });
 
 const initialIndex = dayHashes.indexOf(location.hash.slice(1));
-renderDay(initialIndex >= 0 ? initialIndex : 4);
+renderDay(initialIndex >= 0 ? initialIndex : 5);
 </script>
 </body>
 </html>
