@@ -234,7 +234,7 @@
   }
   .header-progress-bar {
     position: relative;
-    width: 46.49%;
+    width: 53.85%;
     height: 100%;
     background: linear-gradient(90deg, var(--teal2), #C8B56B);
     border-radius: inherit;
@@ -479,6 +479,14 @@
     font-size: 11px;
     color: rgba(255,255,255,0.46);
     margin-top: 5px;
+  }
+  .daily-notes {
+    margin-top: 12px;
+    display: grid;
+    gap: 5px;
+    color: rgba(255,255,255,0.46);
+    font-size: 11px;
+    line-height: 1.55;
   }
   .daily-badge {
     flex: 0 0 auto;
@@ -765,19 +773,6 @@
     font-weight: 600;
   }
 
-  /* ============ FOOTER ============ */
-  .footer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-  }
-  .footer-left { font-size: 11px; color: rgba(255,255,255,0.3); line-height: 1.6; }
-  .legend-row { display: flex; gap: 16px; font-size: 11px; color: rgba(255,255,255,0.5); }
-  .leg { display: flex; align-items: center; gap: 5px; }
-  .leg-dot { width: 8px; height: 8px; border-radius: 2px; }
-
   @media (max-width: 1180px) {
     .overview-grid {
       grid-template-columns: 1fr;
@@ -797,8 +792,7 @@
     .page {
       padding: 32px 18px 40px;
     }
-    .header,
-    .footer {
+    .header {
       flex-direction: column;
       gap: 22px;
     }
@@ -820,9 +814,6 @@
     .day-detail {
       grid-template-columns: 1fr;
     }
-    .footer {
-      align-items: flex-start;
-    }
     .impact-head,
     .pattern-head {
       flex-direction: column;
@@ -837,9 +828,6 @@
       grid-template-columns: 1fr;
       gap: 4px;
     }
-    .legend-row {
-      flex-wrap: wrap;
-    }
   }
 </style>
 </head>
@@ -851,16 +839,16 @@
     <div>
       <div class="header-eyebrow">โรงพยาบาลมุกดาหาร · ปีงบประมาณ 2569</div>
       <div class="header-title">Dashboard ส่งมอบ<br><em>คอมพิวเตอร์ระบบเช่า</em><br>Paperless</div>
-      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 25 พฤษภาคม 2569</div>
+      <div class="header-sub">18 พฤษภาคม – 3 มิถุนายน 2569 · อัปเดตสะสมถึง 26 พฤษภาคม 2569</div>
     </div>
     <div class="header-big">
-      <div class="num"><span class="done">139</span><span class="slash">/</span><span class="total">299</span></div>
+      <div class="num"><span class="done">161</span><span class="slash">/</span><span class="total">299</span></div>
       <div class="unit">เครื่อง</div>
       <div class="label">ส่งมอบแล้ว / รวมทั้งสิ้น</div>
     </div>
-    <div class="header-progress" aria-label="ส่งมอบแล้ว 46.49%">
+    <div class="header-progress" aria-label="ส่งมอบแล้ว 53.85%">
       <div class="header-progress-bar">
-        <span class="header-progress-label">46.49%</span>
+        <span class="header-progress-label">53.85%</span>
       </div>
       <div class="header-progress-flag" aria-hidden="true">🏁</div>
     </div>
@@ -871,50 +859,50 @@
     <section class="impact-panel" aria-labelledby="todayImpactTitle">
       <div class="impact-head">
         <div>
-          <div class="sec-label">Daily performance · 25 พ.ค.</div>
-          <div class="impact-title" id="todayImpactTitle">วันนี้ส่งมอบ <em>ต่ำกว่าแผน</em></div>
-          <div class="impact-note">ปัญหาหลักไม่ใช่จำนวนเครื่องอย่างเดียว แต่เป็นเวลางานติดตั้งที่ถูกดึงออกไปทั้งช่วงเช้าและช่วงบ่าย</div>
+          <div class="sec-label">ผลงานประจำวัน · 26 พ.ค.</div>
+          <div class="impact-title" id="todayImpactTitle">วันนี้ส่งมอบ <em>เสร็จเรียบร้อย</em></div>
+          <div class="impact-note">ส่งมอบตามแผน 21 เครื่อง และเก็บงานนอกกำหนดการเพิ่ม 2 เครื่อง ทำให้ยอดสะสมข้ามครึ่งโครงการแล้ว</div>
         </div>
-        <div class="gap-meter" aria-label="ต่ำกว่าแผน 8 เครื่อง">
-          <div class="label">Gap</div>
-          <div class="num">-8</div>
-        </div>
-      </div>
-
-      <div class="score-grid" aria-label="สรุปตัวเลขประจำวันที่ 25 พฤษภาคม 2569">
-        <div class="score-card">
-          <div class="score-label">Plan</div>
-          <div class="score-val">23</div>
-        </div>
-        <div class="score-card">
-          <div class="score-label">Actual</div>
-          <div class="score-val good">15</div>
-        </div>
-        <div class="score-card">
-          <div class="score-label">Finish</div>
-          <div class="score-val warn">19:20</div>
-        </div>
-        <div class="score-card">
-          <div class="score-label">Delayed</div>
-          <div class="score-val bad">6</div>
+        <div class="gap-meter" aria-label="งานนอกกำหนดการเพิ่ม 2 เครื่อง">
+          <div class="label">นอกแผน</div>
+          <div class="num">+2</div>
         </div>
       </div>
 
-      <div class="cause-chain" aria-label="สาเหตุหลักที่ทำให้ส่งมอบต่ำกว่าแผน">
+      <div class="score-grid" aria-label="สรุปตัวเลขประจำวันที่ 26 พฤษภาคม 2569">
+        <div class="score-card">
+          <div class="score-label">ตามแผน</div>
+          <div class="score-val">21</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">ส่งมอบจริง</div>
+          <div class="score-val good">23</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">สะสม</div>
+          <div class="score-val warn">161</div>
+        </div>
+        <div class="score-card">
+          <div class="score-label">คงเหลือ</div>
+          <div class="score-val bad">138</div>
+        </div>
+      </div>
+
+      <div class="cause-chain" aria-label="สรุปพื้นที่ส่งมอบประจำวันที่ 26 พฤษภาคม 2569">
         <div class="cause-card">
-          <div class="cause-step">01 · Morning</div>
-          <div class="cause-title">ทีมถูกดึงไป IT Support</div>
-          <div class="cause-detail">OPD, จักษุ, ENT, ห้องยา และบัตรทอง ทำให้ช่วงเช้าไม่มีการส่งมอบ</div>
+          <div class="cause-step">01 · 08:00–09:00</div>
+          <div class="cause-title">Standby รับงาน</div>
+          <div class="cause-detail">เตรียมทีมและอุปกรณ์ก่อนเริ่มส่งมอบตามพื้นที่</div>
         </div>
         <div class="cause-card">
-          <div class="cause-step">02 · Afternoon</div>
-          <div class="cause-title">มีงานขอ Backup Data</div>
-          <div class="cause-detail">OPD และ LAB ขอสำรองข้อมูล ส่งผลให้การเคลื่อนย้ายและติดตั้งล่าช้า</div>
+          <div class="cause-step">02 · 10:00–12:00</div>
+          <div class="cause-title">อาคาร 40 ปี ชั้น 9</div>
+          <div class="cause-detail">หอผู้ป่วยศัลยกรรมชาย จำนวน 6 เครื่อง</div>
         </div>
         <div class="cause-card">
-          <div class="cause-step">03 · Impact</div>
-          <div class="cause-title">ศัลยกรรมหญิงเลื่อน</div>
-          <div class="cause-detail">เลื่อน 6 เครื่อง และกุมารเวชกรรม +PPL ส่งมอบได้ 7 จาก 9 เครื่อง</div>
+          <div class="cause-step">03 · 13:30–20:00</div>
+          <div class="cause-title">อาคารอำนวยการ ชั้น 5 และงานนอกกำหนดการ</div>
+          <div class="cause-detail">พื้นที่หลัก 15 เครื่อง และงานนอกกำหนดการ 2 เครื่อง</div>
         </div>
       </div>
     </section>
@@ -922,20 +910,20 @@
     <!-- ===== PROJECT SNAPSHOT ===== -->
     <aside class="snapshot-stack" aria-label="ภาพรวมโครงการ">
       <div class="snapshot-card c-slate">
-        <div class="snapshot-val">139 / 299</div>
-        <div class="snapshot-label">ส่งมอบแล้วสะสมถึง 25 พ.ค.</div>
+        <div class="snapshot-val">161 / 299</div>
+        <div class="snapshot-label">ส่งมอบแล้วสะสมถึง 26 พ.ค.</div>
       </div>
       <div class="snapshot-card c-teal">
-        <div class="snapshot-val">46.49%</div>
+        <div class="snapshot-val">53.85%</div>
         <div class="snapshot-label">ความคืบหน้าโครงการ</div>
       </div>
       <div class="snapshot-card c-amber">
-        <div class="snapshot-val">160</div>
-        <div class="snapshot-label">คงเหลือรอจัดส่ง 26 พ.ค.–3 มิ.ย.</div>
+        <div class="snapshot-val">138</div>
+        <div class="snapshot-label">คงเหลือจากเป้าหมาย 299 เครื่อง</div>
       </div>
       <div class="snapshot-card c-coral">
-        <div class="snapshot-val">-1</div>
-        <div class="snapshot-label">กำลังคนลดลงตั้งแต่ 23 พ.ค.</div>
+        <div class="snapshot-val">+2</div>
+        <div class="snapshot-label">งานนอกกำหนดการที่เก็บเพิ่มวันนี้</div>
       </div>
     </aside>
   </div>
@@ -944,10 +932,10 @@
   <section class="pattern-panel" aria-labelledby="problemPatternTitle">
     <div class="pattern-head">
       <div>
-        <div class="sec-label">Problem pattern · 18–25 พ.ค.</div>
-        <div class="pattern-title" id="problemPatternTitle">แยกปัญหาซ้ำออกจากปัญหาที่เพิ่งกระทบหนักวันนี้</div>
+        <div class="sec-label">รูปแบบปัญหา · 18–26 พ.ค.</div>
+        <div class="pattern-title" id="problemPatternTitle">แยกปัญหาซ้ำออกจากปัญหาที่พบในการติดตั้งวันนี้</div>
       </div>
-      <div class="pattern-meta">อ้างอิง rep.md, 210569.jpg, 220569.jpg และรายงาน 25 พ.ค.</div>
+      <div class="pattern-meta">อ้างอิงรายงานสะสมเดิมและรายงานประจำวัน 26 พ.ค.</div>
     </div>
     <div class="problem-grid">
       <div class="problem-column">
@@ -959,7 +947,7 @@
           <div class="problem-days">5 วัน</div>
           <div>
             <div class="problem-name">เครื่องพิมพ์แชร์หลายเครื่อง</div>
-            <div class="problem-desc">พบซ้ำวันที่ 18, 20, 23, 24, 25 พ.ค. ทำให้ตั้งค่าและทดสอบต่อเครื่องนานขึ้น</div>
+            <div class="problem-desc">พบซ้ำวันที่ 18, 20, 23, 24, 25, 26 พ.ค. ทำให้ตั้งค่าและทดสอบต่อเครื่องนานขึ้น</div>
           </div>
         </div>
         <div class="problem-item">
@@ -993,35 +981,28 @@
       </div>
       <div class="problem-column is-new">
         <div class="column-head">
-          <div class="column-title">ใหม่/กระทบหนักใน 25 พ.ค.</div>
-          <div class="column-count">4 ประเด็น</div>
+          <div class="column-title">พบในการติดตั้ง 26 พ.ค.</div>
+          <div class="column-count">3 ประเด็น</div>
         </div>
         <div class="problem-item">
-          <div class="problem-days">ใหม่</div>
+          <div class="problem-days">Printer</div>
           <div>
-            <div class="problem-name">ช่วงเช้าไม่มีการส่งมอบ</div>
-            <div class="problem-desc">ทีมถูกดึงไปแก้ปัญหา IT Support หลายจุด ทำให้เสียเวลาติดตั้งหลักครึ่งวัน</div>
+            <div class="problem-name">เครื่องพิมพ์แชร์หลายเครื่อง</div>
+            <div class="problem-desc">คอมพิวเตอร์ 1 เครื่องต้องแชร์ปริ้นหลายเครื่อง ทำให้ใช้เวลาติดตั้งเชื่อมต่อเพิ่มขึ้น</div>
           </div>
         </div>
         <div class="problem-item">
-          <div class="problem-days">ใหม่</div>
+          <div class="problem-days">1 เครื่อง</div>
           <div>
-            <div class="problem-name">งาน Backup OPD/LAB ช่วงบ่าย</div>
-            <div class="problem-desc">เพิ่มขั้นตอนก่อนเคลื่อนย้าย ทำให้วันทำงานยืดถึง 19:20 น.</div>
+            <div class="problem-name">Printer LAN port เสียหาย</div>
+            <div class="problem-desc">ต้องเปลี่ยนวิธีเชื่อมต่อเป็น USB แทน LAN เฉพาะจุด</div>
           </div>
         </div>
         <div class="problem-item">
-          <div class="problem-days">ต่อเนื่อง</div>
+          <div class="problem-days">2 เครื่อง</div>
           <div>
-            <div class="problem-name">กำลังคนลดลง 1 คน</div>
-            <div class="problem-desc">เริ่มตั้งแต่ 23 พ.ค. และเห็นผลชัดเมื่อเจองานสนับสนุนหน้างานในวันที่ 25 พ.ค.</div>
-          </div>
-        </div>
-        <div class="problem-item">
-          <div class="problem-days">ผลกระทบ</div>
-          <div>
-            <div class="problem-name">ศัลยกรรมหญิง 6 เครื่องเลื่อน</div>
-            <div class="problem-desc">เกิดช่องว่างจากแผน 8 เครื่อง และเหลือกุมารเวชกรรม +PPL อีก 2 เครื่อง</div>
+            <div class="problem-name">HoSxP ยังไม่มีสิทธิ์เข้าถึง</div>
+            <div class="problem-desc">ต้องเพิ่มสิทธิ์ก่อนใช้งาน จึงเป็นขั้นตอนติดตามหลังติดตั้งเครื่อง</div>
           </div>
         </div>
       </div>
@@ -1032,28 +1013,20 @@
   <section class="daily-section">
     <div class="daily-head">
       <div>
-        <div class="sec-label">Daily detail</div>
+        <div class="sec-label">รายละเอียดรายวัน</div>
         <div class="daily-title">รายละเอียดการปฏิบัติงานรายวัน</div>
         <div class="daily-meta">เปิดไว้เป็นข้อมูลประกอบ หลังสรุปประเด็นผู้บริหารด้านบน</div>
+        <div class="daily-notes" aria-label="หมายเหตุรายละเอียดรายวัน">
+          <div>* Standby รับงาน = ทีมเตรียมพร้อมตั้งแต่ 08:00 น.</div>
+          <div>* +PPL = ติดตั้งพร้อมระบบ Paperless</div>
+        </div>
       </div>
-      <div class="daily-badge">18–25 May</div>
+      <div class="daily-badge">18–26 พ.ค.</div>
     </div>
     <div class="tab-list" id="dayTabs" role="tablist" aria-label="ข้อมูลรายวัน"></div>
     <div class="daily-panel" id="dayPanel"></div>
   </section>
 
-  <!-- ===== FOOTER ===== -->
-  <div class="footer">
-    <div class="footer-left">
-      * Standby รับงาน = ทีมเตรียมพร้อมตั้งแต่ 08:00 น.<br>
-      * +PPL = ติดตั้งพร้อมกับเครื่องสำรอง
-    </div>
-    <div class="legend-row">
-      <div class="leg"><div class="leg-dot" style="background:#C7653D"></div>ต่ำกว่าแผน</div>
-      <div class="leg"><div class="leg-dot" style="background:#D6A23F"></div>ปรับหน้างาน</div>
-      <div class="leg"><div class="leg-dot" style="background:#8B8171"></div>ปัญหาซ้ำ</div>
-    </div>
-  </div>
 </div>
 
 <script>
@@ -1137,15 +1110,17 @@ const timelineData = [
   },
   {
     date: '26 พ.ค.',
-    count: 21,
-    type: 'normal',
-    status: 'ตามแผน',
-    locs: 'ศัลยกรรมชาย · มะเร็งและเคมีบำบัด · ศัลยกรรมทั่วไป · กายภาพ · Stroke',
+    count: 23,
+    type: 'done',
+    status: 'เสร็จเรียบร้อย',
+    locs: 'ศัลยกรรมชาย · มะเร็งและเคมีบำบัด · ศัลยกรรมทั่วไป · กายภาพ · Stroke · นอกกำหนดการ',
     details: [
-      'Standby รับงาน',
+      'ส่งมอบรวม 23 เครื่อง: ตามแผน 21 เครื่อง และงานนอกกำหนดการ 2 เครื่อง',
       'หอผู้ป่วยศัลยกรรมชาย จำนวน 6 เครื่อง',
       'หอผู้ป่วยมะเร็งและเคมีบำบัด +PPL จำนวน 4 เครื่อง · ศัลยกรรมทั่วไป จำนวน 4 เครื่อง',
-      'OPD เคมีบำบัด ชั้น 5 จำนวน 1 เครื่อง · กายภาพบำบัด จำนวน 2 เครื่อง · หอผู้ป่วยโรคหลอดเลือดสมอง +PPL จำนวน 4 เครื่อง'
+      'OPD เคมีบำบัด ชั้น 5 จำนวน 1 เครื่อง · กายภาพบำบัด จำนวน 2 เครื่อง · หอผู้ป่วยโรคหลอดเลือดสมอง +PPL จำนวน 4 เครื่อง',
+      'นอกกำหนดการ: หอผู้ป่วยกุมารเวชกรรม จำนวน 1 เครื่อง · จุดซักประวัติทันตกรรม จำนวน 1 เครื่อง',
+      'ปัญหาที่พบ: printer แชร์หลายเครื่อง, printer LAN port เสียหาย 1 เครื่อง, HoSxP ยังไม่มีสิทธิ์เข้าถึง 2 เครื่อง'
     ]
   },
   {
@@ -1301,11 +1276,11 @@ tabEl.addEventListener('click', (event) => {
 
 window.addEventListener('hashchange', () => {
   const hashIndex = dayHashes.indexOf(location.hash.slice(1));
-  renderDay(hashIndex >= 0 ? hashIndex : 5, false);
+  renderDay(hashIndex >= 0 ? hashIndex : 6, false);
 });
 
 const initialIndex = dayHashes.indexOf(location.hash.slice(1));
-renderDay(initialIndex >= 0 ? initialIndex : 5);
+renderDay(initialIndex >= 0 ? initialIndex : 6);
 </script>
 </body>
 </html>
