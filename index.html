@@ -691,6 +691,15 @@
     font-family: inherit;
     text-align: left;
     transition: border-color .18s ease, background .18s ease, color .18s ease;
+    position: relative;
+    overflow: hidden;
+  }
+  .tab-btn::before {
+    content: '';
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 4px;
+    background: rgba(255,255,255,0.08);
   }
   .tab-btn:hover,
   .tab-btn:focus-visible {
@@ -698,14 +707,34 @@
     outline: none;
   }
   .tab-btn.active {
-    background: var(--teal2);
-    color: var(--navy);
-    border-color: var(--teal2);
+    background: linear-gradient(135deg, rgba(247,240,226,0.11), rgba(31,36,31,0.94));
+    color: var(--white);
+    border-color: rgba(247,240,226,0.78);
+    box-shadow: inset 0 0 0 1px rgba(247,240,226,0.18), 0 0 0 2px rgba(31,36,31,0.9);
   }
+  .tab-btn.weekday::before { background: rgba(139,129,113,0.76); }
+  .tab-btn.weekend::before { background: var(--teal2); }
+  .tab-btn.holiday::before { background: var(--amber); }
   .tab-btn.done { border-color: rgba(136,153,170,0.36); }
-  .tab-btn.wknd { border-color: rgba(111,143,93,0.45); }
+  .tab-btn.weekend { border-color: rgba(111,143,93,0.56); }
+  .tab-btn.holiday {
+    border-color: rgba(214,162,63,0.78);
+    background: linear-gradient(135deg, rgba(214,162,63,0.16), rgba(31,36,31,0.76));
+  }
+  .tab-btn.active.holiday {
+    background: linear-gradient(135deg, rgba(214,162,63,0.24), rgba(31,36,31,0.96));
+    border-color: #F0CA65;
+    color: var(--white);
+  }
+  .tab-btn.stage-now {
+    box-shadow: inset 0 0 0 1px rgba(247,240,226,0.16);
+  }
+  .tab-btn.stage-waiting {
+    opacity: 0.72;
+  }
   .tab-btn.peak { border-color: rgba(240,122,80,0.55); }
   .tab-btn.issue { border-color: rgba(199,101,61,0.62); }
+  .tab-btn.issue.holiday { border-color: rgba(214,162,63,0.78); }
   .tab-date {
     display: block;
     font-family: 'IBM Plex Mono', monospace;
@@ -719,6 +748,45 @@
     margin-top: 5px;
     opacity: 0.78;
   }
+  .tab-chip-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-top: 8px;
+  }
+  .tab-kind {
+    display: inline-flex;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    font-size: 9px;
+    font-weight: 700;
+    line-height: 1.4;
+  }
+  .tab-btn.weekend .tab-kind { color: #DDEBC0; }
+  .tab-btn.holiday .tab-kind { color: #F5D78A; }
+  .tab-plan,
+  .tab-stage {
+    display: inline-flex;
+    padding: 2px 6px;
+    border-radius: 999px;
+    font-size: 9px;
+    font-weight: 800;
+    line-height: 1.4;
+    background: rgba(255,255,255,0.08);
+  }
+  .tab-plan.equal { color: #DDEBC0; background: rgba(163,184,108,0.15); }
+  .tab-plan.over { color: #F5D78A; background: rgba(214,162,63,0.16); }
+  .tab-plan.under { color: #F0A183; background: rgba(199,101,61,0.18); }
+  .tab-stage.done { color: rgba(255,255,255,0.62); }
+  .tab-stage.now { color: var(--white); background: rgba(247,240,226,0.16); }
+  .tab-stage.waiting { color: rgba(255,255,255,0.48); border: 1px dashed rgba(255,255,255,0.16); }
+  .tab-btn.active .tab-kind,
+  .tab-btn.active .tab-plan,
+  .tab-btn.active .tab-stage {
+    background: rgba(255,255,255,0.12);
+    color: var(--white);
+  }
   .daily-panel {
     display: grid;
     grid-template-columns: 170px 1fr;
@@ -731,6 +799,19 @@
     border-radius: 12px;
     padding: 16px;
     min-height: 140px;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .day-stat.weekend { border-color: rgba(163,184,108,0.4); }
+  .day-stat.holiday {
+    border-color: rgba(214,162,63,0.66);
+    background: linear-gradient(135deg, rgba(214,162,63,0.14), rgba(31,36,31,0.78));
+  }
+  .day-stat.stage-now {
+    box-shadow: inset 0 0 0 1px rgba(247,240,226,0.14);
+  }
+  .day-stat.stage-waiting .num,
+  .day-stat.stage-waiting .status {
+    opacity: 0.65;
   }
   .day-stat .num {
     font-family: 'IBM Plex Mono', monospace;
@@ -753,6 +834,55 @@
     color: rgba(255,255,255,0.68);
     font-size: 10px;
     font-weight: 600;
+  }
+  .day-signals {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+  .day-signal {
+    display: inline-flex;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.68);
+    font-size: 10px;
+    font-weight: 800;
+  }
+  .day-signal.equal { color: #DDEBC0; background: rgba(163,184,108,0.16); }
+  .day-signal.over { color: #F5D78A; background: rgba(214,162,63,0.18); }
+  .day-signal.under { color: #F0A183; background: rgba(199,101,61,0.18); }
+  .day-signal.done { color: rgba(255,255,255,0.6); }
+  .day-signal.now { color: var(--white); background: rgba(247,240,226,0.14); }
+  .day-signal.waiting { color: rgba(255,255,255,0.48); border: 1px dashed rgba(255,255,255,0.16); }
+  .day-calendar {
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .day-kind {
+    display: inline-flex;
+    padding: 3px 8px;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.72);
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .day-stat.weekend .day-kind {
+    color: #DDEBC0;
+    background: rgba(163,184,108,0.16);
+  }
+  .day-stat.holiday .day-kind {
+    color: #F5D78A;
+    background: rgba(214,162,63,0.18);
+  }
+  .day-note {
+    margin-top: 7px;
+    color: rgba(255,255,255,0.58);
+    font-size: 11px;
+    line-height: 1.42;
   }
   .day-detail {
     display: grid;
@@ -1035,6 +1165,9 @@ const timelineData = [
     date: '18–20 พ.ค.',
     count: 44,
     type: 'done',
+    calendarType: 'weekday',
+    planState: 'equal',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'ส่งมอบแล้วทั้งหมด',
     details: ['ส่งมอบเครื่องคอมพิวเตอร์แล้วทั้งหมด 44 เครื่อง']
@@ -1043,6 +1176,9 @@ const timelineData = [
     date: '21 พ.ค.',
     count: 18,
     type: 'done',
+    calendarType: 'weekday',
+    planState: 'equal',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'หอผู้ป่วยพิเศษ 14 · หอผู้ป่วยพิเศษ 13 · หอผู้ป่วยพิเศษ 12 · จ่ายยา ชั้น 1',
     details: [
@@ -1056,6 +1192,9 @@ const timelineData = [
     date: '22 พ.ค.',
     count: 22,
     type: 'done',
+    calendarType: 'weekday',
+    planState: 'equal',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'ศัลยกรรมกระดูก · ตา หู คอ จมูก · ทันตกรรม · หอผู้ป่วยพิเศษ 9',
     details: [
@@ -1070,6 +1209,9 @@ const timelineData = [
     date: '23 พ.ค. (เสาร์)',
     count: 23,
     type: 'done',
+    calendarType: 'weekend',
+    planState: 'equal',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'จักษุ · หู คอ จมูก · โรคการทำงาน · กุมารเวชกรรม · สูติ-นรีเวชกรรม',
     details: [
@@ -1083,6 +1225,9 @@ const timelineData = [
     date: '24 พ.ค. (อาทิตย์)',
     count: 16,
     type: 'done',
+    calendarType: 'weekend',
+    planState: 'equal',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'ฝากครรภ์ · การเงิน ชั้น 2 · จ่ายยา ชั้น 2',
     details: [
@@ -1099,6 +1244,9 @@ const timelineData = [
     date: '25 พ.ค.',
     count: 15,
     type: 'issue',
+    calendarType: 'weekday',
+    planState: 'under',
+    stage: 'done',
     status: 'ต่ำกว่าแผน',
     locs: 'ICU กุมารฯ · ICU อายุรกรรม · กุมารเวชกรรม · ศัลยกรรมหญิงเลื่อน',
     details: [
@@ -1113,6 +1261,9 @@ const timelineData = [
     date: '26 พ.ค.',
     count: 23,
     type: 'done',
+    calendarType: 'weekday',
+    planState: 'over',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'ศัลยกรรมชาย · มะเร็งและเคมีบำบัด · ศัลยกรรมทั่วไป · กายภาพ · Stroke · นอกกำหนดการ',
     details: [
@@ -1128,6 +1279,9 @@ const timelineData = [
     date: '27 พ.ค.',
     count: 15,
     type: 'done',
+    calendarType: 'weekday',
+    planState: 'under',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'อาคาร 40 ปี · ศัลยกรรมหญิง ชั้น 10 · จ่ายยาผู้ป่วย ชั้น 6 · จ่ายยา ชั้น 1 · เก็บเงิน ชั้น 1',
     details: [
@@ -1144,6 +1298,9 @@ const timelineData = [
     date: '28 พ.ค.',
     count: 16,
     type: 'done',
+    calendarType: 'weekday',
+    planState: 'under',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'ICU ศัลยกรรม · ICU ศัลย์ประสาท · อายุรกรรมหญิง 1+2 +PPL',
     details: [
@@ -1162,6 +1319,9 @@ const timelineData = [
     date: '29 พ.ค.',
     count: 15,
     type: 'done',
+    calendarType: 'weekday',
+    planState: 'equal',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'CCU · Cath Lab · อุบัติเหตุและฉุกเฉิน+สั่งการ+รีเฟอ',
     details: [
@@ -1179,6 +1339,9 @@ const timelineData = [
     date: '30 พ.ค. (เสาร์)',
     count: 18,
     type: 'done',
+    calendarType: 'weekend',
+    planState: 'equal',
+    stage: 'done',
     status: 'เสร็จเรียบร้อย',
     locs: 'PCU · จ่ายยา PCC · เก็บเงิน',
     details: [
@@ -1196,6 +1359,10 @@ const timelineData = [
     date: '31 พ.ค. (อาทิตย์)',
     count: 13,
     type: 'issue',
+    calendarType: 'holiday',
+    holidayName: 'วันวิสาขบูชา',
+    planState: 'under',
+    stage: 'now',
     status: 'ต่ำกว่าแผน',
     locs: 'วิสัญญี · ห้องผ่าตัด · อาคารมโนรมย์',
     details: [
@@ -1211,9 +1378,14 @@ const timelineData = [
     date: '1 มิ.ย.',
     count: 20,
     type: 'normal',
+    calendarType: 'holiday',
+    holidayName: 'วันหยุดชดเชยวันวิสาขบูชา',
+    planState: 'equal',
+    stage: 'waiting',
     status: 'ตามแผน',
     locs: 'อายุรกรรมชาย 1-2 +PPL · ศูนย์โรคหัวใจ · รังสีวิทยา',
     details: [
+      'วันหยุดชดเชยวันวิสาขบูชา',
       'หอผู้ป่วยอายุรกรรมชาย 1-2 +PPL จำนวน 10 เครื่อง',
       'ศูนย์โรคหัวใจ จำนวน 7 เครื่อง · รังสีวิทยา จำนวน 3 เครื่อง',
       'รวมตามแผน 20 เครื่อง'
@@ -1223,6 +1395,9 @@ const timelineData = [
     date: '2 มิ.ย.',
     count: 15,
     type: 'normal',
+    calendarType: 'weekday',
+    planState: 'equal',
+    stage: 'waiting',
     status: 'ตามแผน',
     locs: 'ห้องคลอด · หลังคลอด · หอผู้ป่วยพิเศษ · จ่ายกลาง · โภชนาการ',
     details: [
@@ -1237,9 +1412,14 @@ const timelineData = [
     date: '3 มิ.ย.',
     count: 19,
     type: 'normal',
+    calendarType: 'holiday',
+    holidayName: 'วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าฯ พระบรมราชินี',
+    planState: 'equal',
+    stage: 'waiting',
     status: 'ตามแผน',
     locs: 'ห้องตรวจจิตเวช · ไตเทียม · หอผู้ป่วยจิตเวช',
     details: [
+      'วันเฉลิมพระชนมพรรษาสมเด็จพระนางเจ้าฯ พระบรมราชินี',
       'ห้องตรวจจิตเวช จำนวน 9 เครื่อง',
       'ไตเทียม จำนวน 6 เครื่อง',
       'หอผู้ป่วยจิตเวช จำนวน 4 เครื่อง',
@@ -1255,6 +1435,21 @@ const dayHashes = [
   'day-25-may', 'day-26-may', 'day-27-may', 'day-28-may', 'day-29-may',
   'day-30-may', 'day-31-may', 'day-1-jun', 'day-2-jun', 'day-3-jun'
 ];
+const calendarLabels = {
+  weekday: 'วันทำการ',
+  weekend: 'เสาร์-อาทิตย์',
+  holiday: 'วันหยุดราชการ'
+};
+const planLabels = {
+  equal: 'เท่าแผน',
+  over: 'เกินแผน',
+  under: 'ต่ำกว่าแผน'
+};
+const stageLabels = {
+  done: 'เสร็จแล้ว',
+  now: 'วันนี้',
+  waiting: 'รอดำเนินการ'
+};
 
 function renderDay(index, syncHash = true) {
   const d = timelineData[index];
@@ -1264,10 +1459,18 @@ function renderDay(index, syncHash = true) {
   });
 
   panelEl.innerHTML = `
-    <div class="day-stat">
+    <div class="day-stat ${d.calendarType || 'weekday'} stage-${d.stage || 'waiting'}">
       <div class="num">${d.count}</div>
       <div class="label">เครื่องในวันนั้น</div>
       <div class="status">${d.status}</div>
+      <div class="day-signals">
+        <div class="day-signal ${d.planState || 'equal'}">${planLabels[d.planState] || planLabels.equal}</div>
+        <div class="day-signal ${d.stage || 'waiting'}">${stageLabels[d.stage] || stageLabels.waiting}</div>
+      </div>
+      <div class="day-calendar">
+        <div class="day-kind">${calendarLabels[d.calendarType] || calendarLabels.weekday}</div>
+        ${d.holidayName ? `<div class="day-note">${d.holidayName}</div>` : ''}
+      </div>
     </div>
     <div class="day-detail">
       ${d.details.map(item => `<div class="day-item">${item.replace(/^([^·]+จำนวน \d+ เครื่อง)/, '<strong>$1</strong>')}</div>`).join('')}
@@ -1281,9 +1484,14 @@ function renderDay(index, syncHash = true) {
 timelineData.forEach((d, i) => {
   const label = d.date.replace(' พ.ค.', '/5').replace(' มิ.ย.', '/6').replace(' (เสาร์)', '').replace(' (อาทิตย์)', '');
   tabEl.innerHTML += `
-    <button class="tab-btn ${d.type}" type="button" role="tab" aria-selected="false" aria-controls="dayPanel" data-index="${i}" id="${dayHashes[i]}">
+    <button class="tab-btn ${d.type} ${d.calendarType || 'weekday'} stage-${d.stage || 'waiting'} plan-${d.planState || 'equal'}" type="button" role="tab" aria-selected="false" aria-controls="dayPanel" data-index="${i}" id="${dayHashes[i]}">
       <span class="tab-date">${label}</span>
       <span class="tab-count">${d.count} เครื่อง</span>
+      <span class="tab-chip-row">
+        <span class="tab-kind">${calendarLabels[d.calendarType] || calendarLabels.weekday}</span>
+        <span class="tab-plan ${d.planState || 'equal'}">${planLabels[d.planState] || planLabels.equal}</span>
+        <span class="tab-stage ${d.stage || 'waiting'}">${stageLabels[d.stage] || stageLabels.waiting}</span>
+      </span>
     </button>`;
 });
 
